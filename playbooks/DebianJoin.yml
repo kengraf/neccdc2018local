@@ -1,0 +1,50 @@
+# Join debain host to windows domain
+
+- hosts: debian-clients
+  gather_facts: no
+  remote_user: root
+
+  vars:
+    team_number: "{{ team | default('01') }}"
+
+  tasks:
+    - name: Update hostname
+      shell: |
+        echo '{{ machine_name }}' > /etc/hostname
+
+
+    - name: Restart network services
+      shell: |
+        systemctl restart networking.service
+        apt -y install ntpdate
+        ntpdate -q team{{ team_number }}.wildeagle.local
+ 
+
+    - name: Update and install packages
+      shell: |
+         apt -y install winbind samba cifs-utils smbclient libpam-winbind libnss-winbind  --fix-missing
+         apt -y install krb5-user  --fix-missing
+
+    - name: Push SMB config
+      blockinfile:
+        block: "{{ lookup('file', '../scripts/smb.conf') }}"
+        dest: "/etc/samba/smb.conf"
+        backup: yes
+
+    - name: Fix team number
+      shell:
+         sed -i 's/TEAMXX/TEAM{{ team_number }}/g' /etc/samba/smb.conf
+
+    - name: Restart service
+      shell: |
+        systemctl restart smbd nmdb winbind
+        net ads join -U Administrator
+        pam-auth-update
+        sed -i 's/passwd.*/passwd: compat winbind/g' /etc/nsswitch.conf
+        sed -i 's/group.*/group:   compat winbind/g' /etc/nsswitch.conf
+        sed -i 's/shadow.*/shadow:  compat winbind/g' /etc/nsswitch.conf
+        echo "session required	pam_mkhomedir.so skel=/etc/skel umask=0022" >> /etc/pam.d/common-account
+        service smbd restart
+        service winbind restart
+
+

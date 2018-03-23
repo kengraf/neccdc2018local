@@ -1,0 +1,13 @@
+Type,Address,Name
+A,10.1.X.10,dc.teamX.wildeagle.local
+CNAME,ns1,dc.teamX.wildeagle.local
+A,10,1,X,1,renko.teamX.wildeagle.local
+A,10.1.X.10,tintin.teamX.wildeagle.local
+A,10.1.X.11,holmes.teamX.wildeagle.local
+A,10.1.X.12,marple.teamX.wildeagle.local
+A,10.1.X.13,tracy.teamX.wildeagle.local
+A,10.1.X.14,mulder.teamX.wildeagle.local
+A,10.1.X.15,clousaeu.teamX.wildeagle.local
+A,10.1.X.16,gadget.teamX.wildeagle.local
+A,10.1.X.17,payne.teamX.wildeagle.local
+

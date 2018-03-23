@@ -1,0 +1,16 @@
+# Start IIS and populate with a poster site
+
+- hosts: holmes
+  gather_facts: no
+  remote_user: Administrator
+
+  tasks:
+    - name: Update hostname
+      script: ../scripts/IISstart.ps1
+
+    - name: Copy IIS content
+      win_copy:
+        src: ../IISsite/
+        dest: C:\inetpub\wwwroot
+
+

